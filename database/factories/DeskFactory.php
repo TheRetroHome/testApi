@@ -17,14 +17,7 @@ class DeskFactory extends Factory
     public function definition(): array
     {
         return [
+            'name'=>$this->faker->text(15),
         ];
-    }
-    public function createWithSequentialIds(){
-        $desks = [];
-        for($id = 1;$id <= 10;$id++){
-            $desk = $this->create(['id'=>$id]);
-            $desks[]=$desk;
-        }
-        return $desks;
     }
 }

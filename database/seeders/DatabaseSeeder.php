@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-    Desk::factory()->createWithSequentialIds();
+    Desk::factory(10)->create();
     DeskList::factory(10)->create();
     Card::factory(10)->create();
     Task::factory(10)->create();
