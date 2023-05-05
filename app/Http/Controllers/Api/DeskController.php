@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Desk;
 use App\Models\DeskList;
 use App\Http\Resources\DeskResource;
+use App\Http\Requests\DeskStoreRequest;
 class DeskController extends Controller
 {
     /**
@@ -20,9 +21,10 @@ class DeskController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(DeskStoreRequest $request)
     {
-        //
+        $created_desk = Desk::create($request->all());
+        return new DeskResource($created_desk);
     }
 
     /**

@@ -18,7 +18,7 @@ class DeskListResource extends JsonResource
             'id'=>$this->id,
             'name'=>$this->name,
             'created_at'=>$this->created_at,
-            'desk'=>$this->desk,
+            'desk'=> $this->desk->id,
         ];
     }
 }
