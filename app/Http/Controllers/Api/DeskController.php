@@ -8,6 +8,7 @@ use App\Models\Desk;
 use App\Models\DeskList;
 use App\Http\Resources\DeskResource;
 use App\Http\Requests\DeskStoreRequest;
+use Illuminate\Http\Response;
 class DeskController extends Controller
 {
     /**
@@ -38,16 +39,18 @@ class DeskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(DeskStoreRequest $request, Desk $desk)
     {
-        //
+        $desk->update($request->all());
+        return new DeskResource($desk);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Desk $desk)
     {
-        //
+        $desk->delete();
+        return response(null,Response::HTTP_NO_CONTENT);
     }
 }
